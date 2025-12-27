@@ -1,0 +1,4 @@
+google-adk==1.10.0
+google-cloud-aiplatform==1.97.0
+google-genai==1.24.0
+python-dotenv==1.0.0

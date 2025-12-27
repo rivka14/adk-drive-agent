@@ -1,0 +1,45 @@
+# Python - Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# Python - Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Python - Virtual environments
+.venv/
+
+# Python - Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Environment variables
+.env
+
+# macOS
+.DS_Store
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Ruff - Python linter cache
+.ruff_cache/
+
+# Cursor
+.cursorignore
+.cursorindexingignore
+
+# Claude Code
+CLAUDE.md
+/.claude
+
+
