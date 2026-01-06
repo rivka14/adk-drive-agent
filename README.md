@@ -8,7 +8,7 @@ Drive Agent allows you to load Google Drive files and ask questions about their 
 
 ### Key Features
 
-- **Multi-format Support**: Works with Google Docs, Sheets, Slides, PDFs, images, and text files
+- **Multi-format Support**: Works with Google Docs, Google Sheets, Google Slides
 - **Intelligent Q&A**: Ask questions about file content using natural language
 - **Multi-file Analysis**: Load and compare multiple documents simultaneously
 - **Specialized Workflows**: Includes domain-specific capabilities like disability percentage assessment for Bituach Leumi (National Insurance) documentation
@@ -21,7 +21,6 @@ Drive Agent allows you to load Google Drive files and ask questions about their 
 - Google Cloud Project with the following APIs enabled:
   - AI Platform (Vertex AI)
   - Google Drive API
-  - Generative Language API (Gemini)
 - Google Cloud Application Default Credentials (ADC) configured
 
 ## Installation
@@ -47,7 +46,7 @@ Drive Agent allows you to load Google Drive files and ask questions about their 
 
 4. **Authenticate with Google Cloud**
    ```bash
-   gcloud auth application-default login
+   gcloud auth login
    gcloud services enable aiplatform.googleapis.com
    gcloud services enable drive.googleapis.com
    ```
@@ -152,96 +151,10 @@ adk-drive-agent/
 - `DRIVE_SCOPES`: Google Drive API scopes (default: readonly)
 - `EXPORT_MIME_TYPES`: MIME type mappings for Google Workspace exports
 
-## Tools
 
-### get_drive_file
 
-Downloads and loads a Google Drive file into the session.
-
-**Parameters:**
-- `file_url` (str): Google Drive URL
-
-**Returns:**
-- File metadata and status
-- Content stored in session state
-
-**Supported URL Formats:**
-- `https://drive.google.com/file/d/FILE_ID/view`
-- `https://docs.google.com/document/d/FILE_ID/edit`
-- `https://docs.google.com/spreadsheets/d/FILE_ID/edit`
-- `https://docs.google.com/presentation/d/FILE_ID/edit`
-
-### list_loaded_files
-
-Lists all files currently loaded in the session.
-
-**Parameters:** None
-
-**Returns:**
-- Array of loaded files with metadata
-- File count and session information
-
-## Authentication
-
-The agent uses Google Cloud Application Default Credentials (ADC). Ensure you have:
-
-1. **Authenticated locally:**
-   ```bash
-   gcloud auth application-default login
-   ```
-
-2. **Required IAM permissions:**
-   - `aiplatform.*` (Vertex AI access)
-   - `drive.files.read` (Google Drive read access)
-   - `generativelanguage.*` (Gemini API access)
-
-## Development
-
-### Before Pushing Changes
-
-```bash
-# Unset GITHUB_TOKEN to avoid conflicts
-unset GITHUB_TOKEN
-
-# Authenticate with GitHub CLI
-gh auth login
 ```
 
-### Running Tests
 
-```bash
-# Run agent in CLI mode for testing
-adk run
 
-# Run web interface for interactive testing
-adk web
-```
 
-## Limitations
-
-- Maximum file size: 10 MB (configurable)
-- PDF text extraction is limited (requires additional processing)
-- Files are stored in session state (not persisted across sessions)
-- Requires appropriate Google Drive sharing permissions
-
-## Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'feat: add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## License
-
-[Add your license here]
-
-## Support
-
-For issues and questions:
-- Open an issue on GitHub
-- Check CLAUDE.md for development guidelines
-
----
-
-Built with [Google ADK](https://github.com/google/adk) and Gemini 2.5 Pro
